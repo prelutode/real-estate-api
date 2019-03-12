@@ -23,7 +23,7 @@ public class PropertyController {
 
     /**
      * POST method used to insert given property in database.
-     * Url: .../user/create
+     * Url: .../property/create
      *
      * @param property intended to be persisted in database.
      * @return the property actually persisted.

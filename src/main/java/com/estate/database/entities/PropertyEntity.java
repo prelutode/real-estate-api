@@ -17,16 +17,12 @@ public class PropertyEntity implements BaseEntity<Property> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Short floor;
     private String door;
-    private String street;
 
     @Override
     public Property toModel() {
         Property property = new Property();
-        property.setFloor(this.floor);
         property.setDoor(this.door);
-        property.setStreet(this.street);
         return property;
     }
 }

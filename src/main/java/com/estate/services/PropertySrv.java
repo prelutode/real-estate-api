@@ -37,6 +37,7 @@ public class PropertySrv implements BasicService<Property, Long> {
 
     @Override
     public boolean remove(Property target) {
+        //TODO -> Implement a process able to filter anything matching non null values from object
         return true;
     }
 
@@ -47,6 +48,6 @@ public class PropertySrv implements BasicService<Property, Long> {
 
     @Override
     public boolean existsById(Long id) {
-        return false;
+        return propertyRepository.existsById(id);
     }
 }

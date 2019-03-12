@@ -12,17 +12,12 @@ import lombok.NoArgsConstructor;
 
 
 public class Property implements BaseModel<PropertyEntity> {
-    private Short floor;
     private String door;
-    private String street;
-
 
     @Override
     public PropertyEntity toEntity() {
         PropertyEntity propertyEntity = new PropertyEntity();
-        propertyEntity.setFloor(this.floor);
         propertyEntity.setDoor(this.door);
-        propertyEntity.setStreet(this.street);
         return propertyEntity;
     }
 }
