@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserSrv implements BasicService<User> {
+public class UserSrv implements BasicService<User, String> {
     private UserRepository userRepository;
 
     @Autowired
@@ -35,9 +35,9 @@ public class UserSrv implements BasicService<User> {
     }
 
     @Override
-    public int remove(User target) {
+    public boolean remove(User target) {
         //TODO -> Implement a process able to filter anything matching non null values from object
-        return 0;
+        return true;
     }
 
     @Override
