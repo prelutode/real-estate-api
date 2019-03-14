@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-
 public class Property implements BaseModel<PropertyEntity> {
     private String door;
 
