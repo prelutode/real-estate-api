@@ -2,16 +2,16 @@ package com.estate.services;
 
 import com.estate.models.BaseModel;
 
-public interface BasicService<T extends BaseModel> {
-    T getById(String id);
+public interface BasicService<T extends BaseModel, R> {
+    T getById(R id);
 
     T create(T target);
 
-    boolean removeById(String id);
+    boolean removeById(R id);
 
-    int remove(T target);
+    boolean remove(T target);
 
     boolean update(T target);
 
-    boolean existsById(String id);
+    boolean existsById(R id);
 }
