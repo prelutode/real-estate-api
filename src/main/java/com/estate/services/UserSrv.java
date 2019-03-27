@@ -40,12 +40,15 @@ public class UserSrv implements BasicService<User, String> {
         return true;
     }
 
+    //TODO -> Change return from boolean to User. It makes no sense to return boolean this way
     @Override
     public boolean update(User target) {
         String id = target.getUser();
-        boolean result = true;
+        boolean result = false;
         if (existsById(id)) {
-            result = removeById(id);
+            removeById(id);
+            create(target);
+            result = true;
         }
         return result;
     }

@@ -1,6 +1,7 @@
 package com.estate.database.entities;
 
 
+import com.estate.database.entities.utils.PropertyId;
 import com.estate.models.Property;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,15 +15,30 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PropertyEntity implements BaseEntity<Property> {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String door;
+    @EmbeddedId
+    private PropertyId id;
+
+    public Short getDoor() {
+        return this.id.getDoor();
+    }
+
+    public void setDoor(Short door) {
+        this.id.setDoor(door);
+    }
+
+    public Short getFloor() {
+        return this.id.getFloor();
+    }
+
+    public void setFloor(Short floor) {
+        this.id.setFloor(floor);
+    }
+
 
     @Override
     public Property toModel() {
         Property property = new Property();
-        property.setDoor(this.door);
+        property.setDoor(this.id.getDoor());
         return property;
     }
 }
