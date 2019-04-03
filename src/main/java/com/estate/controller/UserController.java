@@ -33,7 +33,7 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User savedUser = userSrv.create(user);
         ResponseEntity<User> result = new ResponseEntity<>(savedUser, HttpStatus.OK);
-        log.info("Saved user: {}", savedUser.getUser());
+        log.info("Saved user: {}", savedUser.getNIF());
         return result;
     }
 
@@ -47,7 +47,7 @@ public class UserController {
             produces = "application/json")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         User user = userSrv.getById(id);
-        log.info("Retrieved user: {}", user.getUser());
+        log.info("Retrieved user: {}", user.getNIF());
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

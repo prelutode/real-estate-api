@@ -16,14 +16,20 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class UserEntity implements BaseEntity<User> {
     @Id
-    private String user;
+    private String NIF;
+    private String name;
+    private String username;
     private String password;
+    private String email;
 
     @Override
     public User toModel() {
         User user = new User();
-        user.setUser(this.user);
+        user.setNIF(this.NIF);
+        user.setName(this.name);
+        user.setUsername(this.username);
         user.setPassword(this.password);
+        user.setEmail(this.email);
         return user;
     }
 }
