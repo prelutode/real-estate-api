@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class UserEntity implements BaseEntity<User> {
     @Id
-    private String NIF;
+    private String nif;
     private String name;
     private String username;
     private String password;
@@ -25,7 +25,7 @@ public class UserEntity implements BaseEntity<User> {
     @Override
     public User toModel() {
         User user = new User();
-        user.setNIF(this.NIF);
+        user.setNif(this.nif);
         user.setName(this.name);
         user.setUsername(this.username);
         user.setPassword(this.password);

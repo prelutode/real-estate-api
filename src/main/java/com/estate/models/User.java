@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User implements BaseModel<UserEntity> {
-    private String NIF;
+    private String nif;
     private String name;
     private String username;
     private String password;
@@ -19,7 +19,7 @@ public class User implements BaseModel<UserEntity> {
     @Override
     public UserEntity toEntity() {
         UserEntity userEntity = new UserEntity();
-        userEntity.setNIF(this.NIF);
+        userEntity.setNif(this.nif);
         userEntity.setName(this.name);
         userEntity.setUsername(this.username);
         userEntity.setPassword(this.password);
