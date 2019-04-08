@@ -2,6 +2,7 @@ package com.estate.controller;
 
 import com.estate.models.Account;
 import com.estate.services.AccountSrv;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,7 @@ public class AccountController {
     public ResponseEntity<Account> createProperty(@RequestBody Account account) {
         Account accountSaved = accountSrv.create(account);
         ResponseEntity<Account> result = new ResponseEntity<>(account, HttpStatus.OK);
-        log.info("Saved account: {}", account);
+        Log.info("Saved account: {}", account);
         return result;
     }
 
