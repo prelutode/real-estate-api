@@ -1,7 +1,7 @@
-package com.estate.CRUD;
+package com.estate.models;
+
 
 import com.estate.database.entities.StateEntity;
-import com.estate.models.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +16,7 @@ public class State implements BaseModel<StateEntity> {
     @Override
     public StateEntity toEntity() {
         StateEntity stateEntity = new StateEntity();
-        stateEntity.setID(this.id);
+        stateEntity.setId(this.id);
         stateEntity.setAdress(this.address);
         return stateEntity;
     }

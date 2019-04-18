@@ -2,6 +2,7 @@ package com.estate.controller;
 
 import com.estate.models.User;
 import com.estate.services.UserSrv;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,9 +32,9 @@ public class UserController {
             produces = "application/json",
             consumes = "application/json")
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userSrv.create(user);
+        User savedUser = this.userSrv.create(user);
         ResponseEntity<User> result = new ResponseEntity<>(savedUser, HttpStatus.OK);
-        log.info("Saved user: {}", savedUser.getUser());
+        Log.info("Saved user: {}", savedUser.getUser());
         return result;
     }
 
@@ -47,7 +48,7 @@ public class UserController {
             produces = "application/json")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         User user = userSrv.getById(id);
-        log.info("Retrieved user: {}", user.getUser());
+        Log.info("Retrieved user: {}", user.getUser());
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

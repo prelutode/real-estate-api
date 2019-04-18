@@ -48,7 +48,7 @@ public class AccountController {
             produces = "application/json")
     public ResponseEntity<Account> getPropertyById(@PathVariable String id) {
         Account account = accountSrv.getById(id);
-        log.info("Retrieved account: {}", id);
+        Log.info("Retrieved account: {}", id);
         return new ResponseEntity<>(account, HttpStatus.OK);
     }
 
@@ -62,7 +62,7 @@ public class AccountController {
             produces = "application/json")
     public ResponseEntity<Boolean> deletePropertyById(@PathVariable String id) {
         Boolean exists = accountSrv.removeById(id);
-        log.info("Removed account: {}", id);
+        Log.info("Removed account: {}", id);
         return new ResponseEntity<>(exists, HttpStatus.OK);
     }
 }
