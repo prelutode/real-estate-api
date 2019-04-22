@@ -1,9 +1,7 @@
 package com.estate.controller;
 
-
-import com.estate.CRUD.State;
+import com.estate.models.State;
 import com.estate.services.StateSrv;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +24,7 @@ public class StateController {
     @PostMapping(value = "/create",
             produces = "application/json",
             consumes = "application/json")
-    public ResponseEntity<com.estate.CRUD.State> createState(@RequestBody com.estate.CRUD.State state) {
+    public ResponseEntity<State> createState(@RequestBody State state) {
         State stateSaved = this.stateSrv.create(state);
         return null;
     }
@@ -35,7 +33,7 @@ public class StateController {
             produces = "application/json")
     public ResponseEntity<State> getStateById(@PathVariable String id) {
         State state = this.stateSrv.getById(id);
-        Log.info("Retrieved State: {}", id);
+        log.info("Retrieved State: {}", id);
         return new ResponseEntity<>(state, HttpStatus.OK);
     }
 

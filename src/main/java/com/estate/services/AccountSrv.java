@@ -13,7 +13,7 @@ public class AccountSrv implements BasicService<Account, String> {
 
     @Autowired
     public AccountSrv(AccountRepository accountRepository) {
-        this. accountRepository = accountRepository;
+        this.accountRepository = accountRepository;
     }
 
     @Override

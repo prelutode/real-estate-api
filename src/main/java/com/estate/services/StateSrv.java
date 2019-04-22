@@ -1,7 +1,7 @@
 package com.estate.services;
 
-import com.estate.CRUD.State;
 import com.estate.database.repository.StateRepository;
+import com.estate.models.State;
 import org.springframework.stereotype.Service;
 
 @Service

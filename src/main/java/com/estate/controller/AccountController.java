@@ -2,7 +2,6 @@ package com.estate.controller;
 
 import com.estate.models.Account;
 import com.estate.services.AccountSrv;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +33,7 @@ public class AccountController {
     public ResponseEntity<Account> createProperty(@RequestBody Account account) {
         Account accountSaved = accountSrv.create(account);
         ResponseEntity<Account> result = new ResponseEntity<>(account, HttpStatus.OK);
-        Log.info("Saved account: {}", account);
+        log.info("Saved account: {}", account);
         return result;
     }
 
@@ -48,7 +47,7 @@ public class AccountController {
             produces = "application/json")
     public ResponseEntity<Account> getPropertyById(@PathVariable String id) {
         Account account = accountSrv.getById(id);
-        Log.info("Retrieved account: {}", id);
+        log.info("Retrieved account: {}", id);
         return new ResponseEntity<>(account, HttpStatus.OK);
     }
 
@@ -62,7 +61,7 @@ public class AccountController {
             produces = "application/json")
     public ResponseEntity<Boolean> deletePropertyById(@PathVariable String id) {
         Boolean exists = accountSrv.removeById(id);
-        Log.info("Removed account: {}", id);
+        log.info("Removed account: {}", id);
         return new ResponseEntity<>(exists, HttpStatus.OK);
     }
 }

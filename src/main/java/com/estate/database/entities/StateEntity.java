@@ -10,7 +10,6 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class StateEntity implements BaseEntity<State> {
     @Id
     private long id;
@@ -19,8 +18,8 @@ public class StateEntity implements BaseEntity<State> {
     @Override
     public State toModel() {
         State state = new State();
-        state.setid(this.id);
-        state.setadress(this.address);
+        state.setId(this.id);
+        state.setAddress(this.address);
         return null;
     }
 

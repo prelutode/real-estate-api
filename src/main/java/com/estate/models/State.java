@@ -17,7 +17,7 @@ public class State implements BaseModel<StateEntity> {
     public StateEntity toEntity() {
         StateEntity stateEntity = new StateEntity();
         stateEntity.setId(this.id);
-        stateEntity.setAdress(this.address);
+        stateEntity.setAddress(this.address);
         return stateEntity;
     }
 }

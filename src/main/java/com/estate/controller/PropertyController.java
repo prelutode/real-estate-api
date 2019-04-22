@@ -1,10 +1,7 @@
 package com.estate.controller;
 
-
-
 import com.estate.models.Property;
 import com.estate.services.PropertySrv;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +32,7 @@ public class PropertyController {
     public ResponseEntity<Property> createProperty(@RequestBody Property property) {
         Property propertySaved = this.propertySrv.create(property);
         ResponseEntity<Property> result = new ResponseEntity<>(property, HttpStatus.OK);
-        Log.info("Saved property: {}", property);
+        log.info("Saved property: {}", property);
         return result;
     }
 
@@ -49,7 +46,7 @@ public class PropertyController {
             produces = "application/json")
     public ResponseEntity<Property> getPropertyById(@PathVariable Long id) {
         Property property = propertySrv.getById(id);
-        Log.info("Retrieved property: {}", id);
+        log.info("Retrieved property: {}", id);
         return new ResponseEntity<>(property, HttpStatus.OK);
     }
 
@@ -57,7 +54,7 @@ public class PropertyController {
             produces = "application/json")
     public ResponseEntity<Boolean> deletePropertyById(@PathVariable Long id) {
         Boolean exists = propertySrv.removeById(id);
-        Log.info("Removed property: {}", id);
+        log.info("Removed property: {}", id);
         return new ResponseEntity<>(exists, HttpStatus.OK);
     }
 }
