@@ -1,7 +1,5 @@
 package com.estate.controller;
 
-
-
 import com.estate.models.Property;
 import com.estate.services.PropertySrv;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +30,7 @@ public class PropertyController {
             produces = "application/json",
             consumes = "application/json")
     public ResponseEntity<Property> createProperty(@RequestBody Property property) {
-        Property propertySaved = propertySrv.create(property);
+        Property propertySaved = this.propertySrv.create(property);
         ResponseEntity<Property> result = new ResponseEntity<>(property, HttpStatus.OK);
         log.info("Saved property: {}", property);
         return result;

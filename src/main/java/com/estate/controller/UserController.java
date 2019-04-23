@@ -31,7 +31,7 @@ public class UserController {
             produces = "application/json",
             consumes = "application/json")
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userSrv.create(user);
+        User savedUser = this.userSrv.create(user);
         ResponseEntity<User> result = new ResponseEntity<>(savedUser, HttpStatus.OK);
         log.info("Saved user: {}", savedUser.getNif());
         return result;
